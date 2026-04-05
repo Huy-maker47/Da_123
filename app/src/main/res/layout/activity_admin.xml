@@ -1,45 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="#F5F5F5">
 
+    <!-- Header -->
     <TextView
-        android:text="Quản lý người dùng"
+        android:text="Admin Panel"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#1A73E8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"/>
+        android:textColor="#fff"
+        android:background="#1A73E8"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/textViewUserCount"
-        android:text="Tổng người dùng: 0"
-        android:textSize="14sp"
-        android:textColor="#555"
-        android:layout_width="wrap_content"
+    <!-- Tab bar -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"/>
+        app:tabSelectedTextColor="#1A73E8"
+        app:tabTextColor="#888"
+        app:tabIndicatorColor="#1A73E8"
+        android:background="#fff"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewUsers"
+    <!-- Tab content -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
 
-    <Button
-        android:id="@+id/buttonManageDisease"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quản lý bệnh"
-        android:backgroundTint="#43A047"
-        android:textColor="#fff"
-        android:layout_marginTop="8dp"/>
+        <!-- Tab 1: Users -->
+        <LinearLayout
+            android:id="@+id/layoutUsers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
+            <TextView
+                android:id="@+id/textViewUserCount"
+                android:text="Tổng người dùng: 0"
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewUsers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <!-- Tab 2: Diseases -->
+        <LinearLayout
+            android:id="@+id/layoutDiseases"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewDiseaseCount"
+                android:text="Tổng bệnh: 0"
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewDiseases"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/buttonAddDisease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ Thêm bệnh mới"
+                android:backgroundTint="#43A047"
+                android:textColor="#fff"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Logout button luôn ở dưới -->
     <Button
         android:id="@+id/buttonAdminLogout"
         android:layout_width="match_parent"
@@ -47,6 +103,6 @@
         android:text="Đăng xuất"
         android:backgroundTint="#E53935"
         android:textColor="#fff"
-        android:layout_marginTop="8dp"/>
+        android:layout_margin="16dp"/>
 
 </LinearLayout>
