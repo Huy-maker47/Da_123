@@ -67,7 +67,7 @@ class DoctorDetailsActivity : AppCompatActivity() {
             insets
         }
 
-        tv = findViewById(R.id.textViewDDTitle)
+        tv = findViewById(R.id.textView_logo6)
         btn = findViewById(R.id.buttonDDBack)
 
         val title = intent.getStringExtra("title")

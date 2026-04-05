@@ -54,9 +54,9 @@ class LabTestActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        btnGoToCart = findViewById(R.id.buttonLTGoToCart)
-        btnBack = findViewById(R.id.buttonLTBack)
-        listView = findViewById(R.id.ListViewLT)
+        btnGoToCart = findViewById(R.id.buttonAddToCart)
+        btnBack = findViewById(R.id.buttonLDBack)
+        listView = findViewById(R.id.editTextLDTextMultiLine)
 
         // 2. Xử lý nút Quay lại
         btnBack.setOnClickListener {

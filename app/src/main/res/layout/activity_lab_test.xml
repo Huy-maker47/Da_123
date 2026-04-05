@@ -23,7 +23,7 @@
     app:layout_constraintVertical_bias="0.078" />
 
     <TextView
-        android:id="@+id/textViewDDTitle"
+        android:id="@+id/textView_logo6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deliver Location"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.01999998" />
 
     <TextView
-        android:id="@+id/textViewDDTitle2"
+        android:id="@+id/textViewLDPackageName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lab Test and Packages"
@@ -47,11 +47,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDDTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textView_logo6"
         app:layout_constraintVertical_bias="0.015" />
 
     <ListView
-        android:id="@+id/ListViewLT"
+        android:id="@+id/editTextLDTextMultiLine"
         android:layout_width="350dp"
         android:layout_height="500dp"
         android:layout_margin="10dp"
@@ -62,10 +62,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDDTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_logo6" />
 
     <Button
-        android:id="@+id/buttonLTBack"
+        android:id="@+id/buttonLDBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BACK"
@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonLTGoToCart"
+        android:id="@+id/buttonAddToCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GO TO CART"
