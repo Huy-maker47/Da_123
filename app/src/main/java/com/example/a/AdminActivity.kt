@@ -1,10 +1,10 @@
 package com.example.a
 
-import android.widget.EditText
-import android.widget.LinearLayout
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -16,6 +16,7 @@ class AdminActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var btnLogout: Button
+    private lateinit var btnAddDisease: Button
     private lateinit var tvUserCount: TextView
     private lateinit var db: Database
 
@@ -25,6 +26,7 @@ class AdminActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerViewUsers)
         btnLogout = findViewById(R.id.buttonAdminLogout)
+        btnAddDisease = findViewById(R.id.buttonManageDisease)
         tvUserCount = findViewById(R.id.textViewUserCount)
 
         db = Database(applicationContext, "healthcare", null, 2)
@@ -38,20 +40,22 @@ class AdminActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
+
+        // ĐÂY — listener phải nằm trong onCreate
+        btnAddDisease.setOnClickListener {
+            showAddDiseaseDialog()
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        loadUsers() // reload lại mỗi khi quay về màn này
+        loadUsers()
     }
 
     private fun loadUsers() {
-        val userList = db.getAllUsers() // List<Triple<username, email, password>>
+        val userList = db.getAllUsers()
         tvUserCount.text = "Tổng người dùng: ${userList.size}"
-
-        val adapter = UserAdapter(userList) { username ->
-            confirmDelete(username)
-        }
+        val adapter = UserAdapter(userList) { username -> confirmDelete(username) }
         recyclerView.adapter = adapter
     }
 
@@ -96,9 +100,5 @@ class AdminActivity : AppCompatActivity() {
             }
             .setNegativeButton("Hủy", null)
             .show()
-        val btnAddDisease = findViewById<Button>(R.id.buttonAddDisease)
-        btnAddDisease.setOnClickListener {
-            showAddDiseaseDialog()
-        }
     }
 }

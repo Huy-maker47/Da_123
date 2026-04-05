@@ -8,7 +8,7 @@
     android:background="#F5F5F5">
 
     <TextView
-        android:text="Quản lý người dùng"
+        android:text="Quản lý bệnh"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#1A73E8"
@@ -17,8 +17,8 @@
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:id="@+id/textViewUserCount"
-        android:text="Tổng người dùng: 0"
+        android:id="@+id/textViewDiseaseCount"
+        android:text="Tổng bệnh: 0"
         android:textSize="14sp"
         android:textColor="#555"
         android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
         android:layout_marginBottom="12dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewUsers"
+        android:id="@+id/recyclerViewDiseases"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
@@ -41,11 +41,11 @@
         android:layout_marginTop="8dp"/>
 
     <Button
-        android:id="@+id/buttonAdminLogout"
+        android:id="@+id/buttonDiseaseBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đăng xuất"
-        android:backgroundTint="#E53935"
+        android:text="Quay lại"
+        android:backgroundTint="#757575"
         android:textColor="#fff"
         android:layout_marginTop="8dp"/>
 

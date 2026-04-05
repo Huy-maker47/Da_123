@@ -108,4 +108,18 @@ class Database(
         db.close()
         return list
     }
+    fun updateDisease(oldName: String, newName: String, newDesc: String) {
+        val cv = ContentValues()
+        cv.put("name", newName)
+        cv.put("description", newDesc)
+        val db = writableDatabase
+        db.update("diseases", cv, "name = ?", arrayOf(oldName))
+        db.close()
+    }
+
+    fun deleteDisease(name: String) {
+        val db = writableDatabase
+        db.delete("diseases", "name = ?", arrayOf(name))
+        db.close()
+    }
 }
