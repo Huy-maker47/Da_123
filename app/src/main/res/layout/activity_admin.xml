@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+    <TextView
+        android:text="Quản lý người dùng"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#1A73E8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewUserCount"
+        android:text="Tổng người dùng: 0"
+        android:textSize="14sp"
+        android:textColor="#555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewUsers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/buttonAdminLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng xuất"
+        android:backgroundTint="#E53935"
+        android:textColor="#fff"
+        android:layout_marginTop="12dp"/>
+    <Button
+        android:id="@+id/buttonAddDisease"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm bệnh"
+        android:backgroundTint="#43A047"
+        android:textColor="#fff"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

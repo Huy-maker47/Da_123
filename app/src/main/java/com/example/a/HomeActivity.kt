@@ -15,27 +15,29 @@ class HomeActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("username", "").toString()
-
         Toast.makeText(applicationContext, "Welcome $username", Toast.LENGTH_SHORT).show()
 
-        val exit = findViewById<CardView>(R.id.cardExit)
-
-        exit.setOnClickListener {
-
+        // Logout
+        findViewById<CardView>(R.id.cardExit).setOnClickListener {
             val editor = sharedPreferences.edit()
             editor.clear()
             editor.apply()
-
-            startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
         }
-        val findDoctor = findViewById<CardView>(R.id.cardFindDoctor)
 
-        findDoctor.setOnClickListener {
-            startActivity(Intent(this@HomeActivity, FindDoctorActivity::class.java))
+        // Find Doctor
+        findViewById<CardView>(R.id.cardFindDoctor).setOnClickListener {
+            startActivity(Intent(this, FindDoctorActivity::class.java))
         }
-        val LabTest = findViewById<CardView>(R.id.cardFindDoctor)
+
+        // Lab Test
         findViewById<CardView>(R.id.cardLabTest).setOnClickListener {
             startActivity(Intent(this, LabTestActivity::class.java))
+        }
+
+        // Disease
+        findViewById<CardView>(R.id.cardDisease).setOnClickListener {
+            startActivity(Intent(this, DiseaseActivity::class.java))
         }
     }
 }

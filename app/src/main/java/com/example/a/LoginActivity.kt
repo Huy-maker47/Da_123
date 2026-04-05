@@ -13,10 +13,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class LoginActivity : AppCompatActivity() {
+
     lateinit var edUsername: EditText
     lateinit var edPassword: EditText
     lateinit var btn: Button
     lateinit var tv: TextView
+
+    // Admin credentials hardcode ở đây
+    private val ADMIN_USERNAME = "Admin"
+    private val ADMIN_PASSWORD = "Admin@1234"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,52 +32,44 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        edUsername = findViewById (R.id.editTextLoginUsername)
+
+        edUsername = findViewById(R.id.editTextLoginUsername)
         edPassword = findViewById(R.id.editTextLoginPassword)
         btn = findViewById(R.id.ButtonLogin)
         tv = findViewById(R.id.TextViewNewUser)
 
+        val db = Database(applicationContext, "healthcare", null, 2)
 
-        val db = Database(applicationContext, "healthcare", null, 1)
         btn.setOnClickListener {
             val username = edUsername.text.toString()
             val password = edPassword.text.toString()
 
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(
-                    applicationContext,
-                    "Please fill All details",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(applicationContext, "Please fill All details", Toast.LENGTH_SHORT).show()
             } else {
-
-                if (db.login(username, password) == 1) {
-
-                    Toast.makeText(
-                        applicationContext,
-                        "Login Success",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                // Check admin trước
+                if (username == ADMIN_USERNAME && password == ADMIN_PASSWORD) {
+                    Toast.makeText(applicationContext, "Welcome Admin!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
+                    finish()
+                }
+                // Check user thường qua SQLite
+                else if (db.login(username, password) == 1) {
+                    Toast.makeText(applicationContext, "Login Success", Toast.LENGTH_SHORT).show()
                     val sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
-
                     editor.putString("username", username)
                     editor.apply()
                     startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-
+                    finish()
                 } else {
-
-                    Toast.makeText(
-                        applicationContext,
-                        "Invalid Username and Password",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(applicationContext, "Invalid Username and Password", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+
         tv.setOnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
     }
 }
