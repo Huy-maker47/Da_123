@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         btn = findViewById(R.id.ButtonLogin)
         tv = findViewById(R.id.TextViewNewUser)
 
-        val db = Database(applicationContext, "healthcare", null, 2)
+        val db = Database(applicationContext, "healthcare", null, 3)
 
         btn.setOnClickListener {
             val username = edUsername.text.toString()

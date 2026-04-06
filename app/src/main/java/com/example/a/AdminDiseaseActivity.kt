@@ -30,7 +30,7 @@ class AdminDiseaseActivity : AppCompatActivity() {
         btnBack = findViewById(R.id.buttonDiseaseBack)
         tvCount = findViewById(R.id.textViewDiseaseCount)
 
-        db = Database(applicationContext, "healthcare", null, 2)
+        db = Database(applicationContext, "healthcare", null, 3)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         loadDiseases()

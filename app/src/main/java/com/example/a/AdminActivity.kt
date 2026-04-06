@@ -46,7 +46,7 @@ class AdminActivity : AppCompatActivity() {
         btnAddDisease = findViewById(R.id.buttonAddDisease)
         btnLogout = findViewById(R.id.buttonAdminLogout)
 
-        db = Database(applicationContext, "healthcare", null, 2)
+        db = Database(applicationContext, "healthcare", null, 3)
 
         recyclerViewUsers.layoutManager = LinearLayoutManager(this)
         recyclerViewDiseases.layoutManager = LinearLayoutManager(this)

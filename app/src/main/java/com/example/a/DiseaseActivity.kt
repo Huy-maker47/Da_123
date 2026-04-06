@@ -11,7 +11,7 @@ class DiseaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_disease)
 
-        val db = Database(applicationContext, "healthcare", null, 2)
+        val db = Database(applicationContext, "healthcare", null, 3)
         val diseases = db.getAllDiseases() // List<Pair<name, description>>
 
         val displayList = diseases.map { "${it.first} — ${it.second}" }

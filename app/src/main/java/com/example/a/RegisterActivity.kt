@@ -35,7 +35,7 @@ class RegisterActivity : AppCompatActivity() {
         edConfirm = findViewById(R.id.editRegConfirmPassword)
         btn = findViewById(R.id.ButtonRegister)
         tv = findViewById(R.id.textViewExistingUser)
-        val db = Database(applicationContext, "healthcare", null, 2)
+        val db = Database(applicationContext, "healthcare", null, 3)
         tv.setOnClickListener {
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }

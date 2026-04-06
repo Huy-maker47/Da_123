@@ -39,5 +39,8 @@ class HomeActivity : AppCompatActivity() {
         findViewById<CardView>(R.id.cardDisease).setOnClickListener {
             startActivity(Intent(this, DiseaseActivity::class.java))
         }
+        findViewById<CardView>(R.id.cardNotification).setOnClickListener {
+            startActivity(Intent(this, NotificationActivity::class.java))
+        }
     }
 }
